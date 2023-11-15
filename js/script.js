@@ -187,7 +187,7 @@ class SelectFilter {
         const content = this.rootNode.querySelector('.tab-content');
 
         content.addEventListener('scroll', function () {
-            if (content.scrollHeight > content.clientHeight + this.scrollTop) {
+            if (content.scrollHeight > content.clientHeight + this.scrollTop + 10) {
                 content.classList.add('shadow-bottom');
             } else {
                 content.classList.remove('shadow-bottom');
