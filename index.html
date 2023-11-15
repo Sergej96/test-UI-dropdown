@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/normolize.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="js/script.js"></script>
+    <title>Select UI - Sergei Treigo</title>
+</head>
+
+<body>
+    <section class="conteiner">
+        <div class="demo">
+            <div class="select-filter"></div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = [
+                {
+                    name: 'ЖК',
+                    items: [
+                        {
+                            name: 'Академический',
+                            value: 'Академический'
+                        },
+                        {
+                            name: 'Басманный',
+                            value: 'Басманный'
+                        },
+                        {
+                            name: 'Замоскворечье',
+                            value: 'Замоскворечье'
+                        },
+                        {
+                            name: 'Измайлово',
+                            value: 'Измайлово'
+                        },
+                        {
+                            name: 'Люблино',
+                            value: 'Люблино'
+                        },
+                        {
+                            name: 'Замоскворечье',
+                            value: 'Замоскворечье'
+                        },
+                    ]
+                },
+                {
+                    name: 'Округ',
+                    items: [
+                        {
+                            name: 'Академический_ок',
+                            value: 'Академический'
+                        },
+                        {
+                            name: 'Басманный_ок',
+                            value: 'Басманный'
+                        },
+                        {
+                            name: 'Замоскворечье_ок',
+                            value: 'Замоскворечье'
+                        },
+                        {
+                            name: 'Измайлово_ок',
+                            value: 'Измайлово'
+                        },
+                        {
+                            name: 'Люблино_ок',
+                            value: 'Люблино'
+                        },
+                        {
+                            name: 'Замоскворечье_ок',
+                            value: 'Замоскворечье'
+                        },
+                    ]
+                },
+                {
+                    name: 'Район',
+                    items: [
+                        {
+                            name: 'Академический_р',
+                            value: 'Академический'
+                        },
+                        {
+                            name: 'Басманный_р',
+                            value: 'Басманный'
+                        },
+                        {
+                            name: 'Замоскворечье_р',
+                            value: 'Замоскворечье'
+                        },
+                        {
+                            name: 'Измайлово_р',
+                            value: 'Измайлово'
+                        },
+                        {
+                            name: 'Люблино_р',
+                            value: 'Люблино'
+                        },
+                        {
+                            name: 'Замоскворечье_р',
+                            value: 'Замоскворечье'
+                        },
+                    ]
+                },
+                {
+                    name: 'Метро',
+                    items: [
+                        {
+                            name: 'Академический_м',
+                            value: 'Академический'
+                        },
+                        {
+                            name: 'Басманный_м',
+                            value: 'Басманный'
+                        },
+                        {
+                            name: 'Замоскворечье_м',
+                            value: 'Замоскворечье'
+                        },
+                        {
+                            name: 'Измайлово_м',
+                            value: 'Измайлово'
+                        },
+                        {
+                            name: 'Люблино_м',
+                            value: 'Люблино'
+                        },
+                        {
+                            name: 'Замоскворечье_м',
+                            value: 'Замоскворечье'
+                        },
+                    ]
+                }
+            ];
+
+            new SelectFilter({
+                selectRootNode: '.select-filter',
+                optoins: {
+                    textButton: 'ЖК, Округ, район, метро'
+                },
+                tabs: tabs
+            })
+        });
+    </script>
+
+</body>
+
+</html>
