@@ -42,6 +42,7 @@ class SelectFilter {
             this.insertList();
 
             this.currentTab = this.rootNode.querySelector('.tabs-nav .nav-link.active');
+            this.wrapperTabs = this.rootNode.querySelector('.tab-content');
             this.currentContentTab = this.rootNode.querySelector('.tab-content > .tab-wrapper.active');
             this.wrapperSelectedNode = this.rootNode.querySelector('.dropdowm-selected__inner');
             this.rootNode.addEventListener('click', (event) => {
@@ -101,8 +102,9 @@ class SelectFilter {
 
     initEventToggleButton() {
         this.dropdownButton.addEventListener('click', (event) => {
-            event.target.classList.toggle('active');
+            event.target.closest('button').classList.toggle('active');
             this.rootNode.querySelector('.select-dropdown').classList.toggle('active');
+            this.showOrHideBottomShadow();
         })
     }
 
@@ -122,6 +124,8 @@ class SelectFilter {
             this.currentTab = linkTab;
             this.currentContentTab = contentTab;
         }
+
+        this.showOrHideBottomShadow();
     }
 
     initEventSelect(event) {
@@ -138,6 +142,7 @@ class SelectFilter {
             }
 
             this.changeCountSelected();
+            this.showOrHideBottomShadow();
         }
     }
 
@@ -151,6 +156,7 @@ class SelectFilter {
             this.deleteSelectedNode(tabIndex, itemIndex);
             this.rootNode.querySelector(`#di-${tabIndex}-${itemIndex}`).checked = false;
             this.changeCountSelected();
+            this.showOrHideBottomShadow();
         }
     }
 
@@ -184,15 +190,25 @@ class SelectFilter {
     }
 
     eventScrollBottomShadow() {
-        const content = this.rootNode.querySelector('.tab-content');
-
-        content.addEventListener('scroll', function () {
-            if (content.scrollHeight > content.clientHeight + this.scrollTop + 10) {
-                content.classList.add('shadow-bottom');
+        this.wrapperTabs.addEventListener('scroll', function (event) {
+            if (this.wrapperTabs.scrollHeight > this.wrapperTabs.clientHeight + event.target.scrollTop + 10) {
+                this.wrapperTabs.classList.add('shadow-bottom');
             } else {
-                content.classList.remove('shadow-bottom');
+                this.wrapperTabs.classList.remove('shadow-bottom');
             }
-        });
+        }.bind(this));
+    }
+
+    showOrHideBottomShadow() {
+        if (this.checkScrollTabContent()) {
+            this.wrapperTabs.classList.add('shadow-bottom');
+        } else {
+            this.wrapperTabs.classList.remove('shadow-bottom');
+        }
+    }
+
+    checkScrollTabContent() {
+        return this.wrapperSelectedNode.offsetHeight;
     }
 }
 
